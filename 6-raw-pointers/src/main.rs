@@ -6,6 +6,7 @@ fn main() {
 
     *y = 200;
 
+
     // respecting rust borrow checker and having memory safety
 
     let mut x = 100;
@@ -72,3 +73,15 @@ fn main() {
     }
 
 */
+
+// 1. References 
+//      immutable and mutable &T &mut T
+// 2. Smart Pointers 
+//      Box, Arc, Rc , RefCell 
+
+// 3. raw pointers 
+//    - * const T
+//    - *mut T
+
+// 1 and 2 rust way of doing things, which is memory safety guarantees.
+// 3 unsafe , that means you have to manage the allocations, deacllocations, nulls, dangalings, healp leaks ..everything
