@@ -15,7 +15,7 @@ fn main() {
 }
 
 
-fn max_of(slice: &[i32]) -> i32 {
+fn max_of(slice: &[i32]) -> i32 { // works only with i32
     let mut max = slice[0];
     for i in slice {
         if *i > max {
@@ -25,7 +25,12 @@ fn max_of(slice: &[i32]) -> i32 {
     max
 }
 
-fn max_of_g<T: std::ops::Add<Output = T>+PartialOrd+Copy>(slice: &[T]) -> T {
+// &[i32] &[i64] &[f32]. &[bool]
+
+
+// >= <= > < != 
+
+fn max_of_g<T: std::ops::Mul<Output = T>+PartialOrd+Copy>(slice: &[T]) -> T {
     let mut max = slice[0];
     for i in slice {
         if *i > max {
@@ -34,6 +39,18 @@ fn max_of_g<T: std::ops::Add<Output = T>+PartialOrd+Copy>(slice: &[T]) -> T {
     }
     max
 }
+
+fn max_of_g1<T>(slice: &[T]) -> T  
+        where T: std::ops::Mul<Output = T>+PartialOrd+Copy {
+    let mut max = slice[0];
+    for i in slice {
+        if *i > max {
+            max = *i;
+        }
+    }
+    max
+}
+
 
 fn max_of_g_n<T: Number>(slice: &[T]) -> T {
     let mut max = slice[0];

@@ -1,4 +1,5 @@
-use std::ops::Add;
+use std::ops::{Add,Sub};
+
 //use std::ops::AddAssign 
 
 //+=
@@ -8,7 +9,23 @@ fn main() {
 
     let r2 = Rect::new(32.45,31.46);
 
-    r1 = r1+r2;
+    r1 = r1+r2.clone();
+
+
+    //self, &self -? &mut self
+
+
+   // r1 = r1.add(r2);
+
+   // let r2 = Rect::new(32.45,31.46);
+
+    let r3 = r1-r2; // operator overloading
+
+    // let a= 10;
+    // let b= 20;
+    // let mut k = a+b; // arithmetic // i32 has implemented Add
+
+     //k+=1; // AddAssign
 
   //  let (r1,r2)=(10,12);
    // let r2 = r1+r2; // what is the type at the right side --> Rect Rhs = Self
@@ -17,7 +34,7 @@ fn main() {
 
  //  let r3 = r1+r2;
 
-   println!("{:#?}",r1);
+  // println!("{:#?}",r1);
 
 
    let num1 = Integer32(1232231);
@@ -48,10 +65,23 @@ type Output = Rect; // asserted type
     fn add(self, rhs: Self) -> Self::Output {
         Rect{
             l: self.l + rhs.l,
-            b: self.b+rhs.b
+            b: self.b + rhs.b
         }
     }
 }
+
+
+impl Sub for Rect{
+type Output = Rect; // asserted type
+    fn sub(self, rhs: Self) -> Self::Output {
+        Rect{
+            l: self.l - rhs.l,
+            b: self.b - rhs.b
+        }
+    }
+}
+
+
 
 #[derive(Debug)]
 struct Integer32(i32); // Unit struct

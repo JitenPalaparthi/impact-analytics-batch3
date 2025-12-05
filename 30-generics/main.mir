@@ -1,0 +1,255 @@
+// WARNING: This output format is intended for human consumers only
+// and is subject to change without notice. Knock yourself out.
+// HINT: See also -Z dump-mir for MIR at specific points during compilation.
+fn main() -> () {
+    let mut _0: ();
+    let mut _2: i32;
+    let mut _5: &Rect<f32>;
+    let mut _7: &Rect<f32>;
+    let _8: ();
+    let mut _9: std::fmt::Arguments<'_>;
+    let mut _11: core::fmt::rt::Argument<'_>;
+    let _12: &f64;
+    let _13: &[&str; 2];
+    let _14: &[core::fmt::rt::Argument<'_>; 1];
+    let mut _17: &Rect<i32>;
+    let mut _19: &Rect<i32>;
+    let _20: ();
+    let mut _21: std::fmt::Arguments<'_>;
+    let mut _23: core::fmt::rt::Argument<'_>;
+    let _24: &f64;
+    let _25: &[&str; 2];
+    let _26: &[core::fmt::rt::Argument<'_>; 1];
+    scope 1 {
+        debug x => const 100_i32;
+        let _1: i64;
+        scope 2 {
+            debug y => _1;
+            let _3: Rect<f32>;
+            scope 3 {
+                debug r1 => _3;
+                let _4: f64;
+                scope 4 {
+                    debug a1 => _4;
+                    let _6: f64;
+                    scope 5 {
+                        debug a1 => _6;
+                        let _10: [core::fmt::rt::Argument<'_>; 1];
+                        let _15: Rect<i32>;
+                        scope 6 {
+                            debug args => _10;
+                        }
+                        scope 7 {
+                            debug r1 => _15;
+                            let _16: i64;
+                            scope 8 {
+                                debug a1 => _16;
+                                let _18: f64;
+                                scope 9 {
+                                    debug a1 => _18;
+                                    let _22: [core::fmt::rt::Argument<'_>; 1];
+                                    scope 10 {
+                                        debug args => _22;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    bb0: {
+        _2 = const 100_i32;
+        _1 = <i64 as From<i32>>::from(move _2) -> [return: bb1, unwind continue];
+    }
+
+    bb1: {
+        _3 = Rect::<f32>::new(const 12.3000002f32, const 14.5600004f32) -> [return: bb2, unwind continue];
+    }
+
+    bb2: {
+        _5 = &_3;
+        _4 = Rect::<f32>::area::<f64>(move _5) -> [return: bb3, unwind continue];
+    }
+
+    bb3: {
+        _7 = &_3;
+        _6 = Rect::<f32>::area::<f64>(move _7) -> [return: bb4, unwind continue];
+    }
+
+    bb4: {
+        _12 = &_6;
+        _11 = core::fmt::rt::Argument::<'_>::new_display::<f64>(copy _12) -> [return: bb5, unwind continue];
+    }
+
+    bb5: {
+        _10 = [move _11];
+        _13 = const main::promoted[1];
+        _14 = &_10;
+        _9 = core::fmt::rt::<impl Arguments<'_>>::new_v1::<2, 1>(copy _13, copy _14) -> [return: bb6, unwind continue];
+    }
+
+    bb6: {
+        _8 = _print(move _9) -> [return: bb7, unwind continue];
+    }
+
+    bb7: {
+        _15 = Rect::<i32>::new(const 12_i32, const 14_i32) -> [return: bb8, unwind continue];
+    }
+
+    bb8: {
+        _17 = &_15;
+        _16 = Rect::<i32>::area::<i64>(move _17) -> [return: bb9, unwind continue];
+    }
+
+    bb9: {
+        _19 = &_15;
+        _18 = Rect::<i32>::area::<f64>(move _19) -> [return: bb10, unwind continue];
+    }
+
+    bb10: {
+        _24 = &_18;
+        _23 = core::fmt::rt::Argument::<'_>::new_display::<f64>(copy _24) -> [return: bb11, unwind continue];
+    }
+
+    bb11: {
+        _22 = [move _23];
+        _25 = const main::promoted[0];
+        _26 = &_22;
+        _21 = core::fmt::rt::<impl Arguments<'_>>::new_v1::<2, 1>(copy _25, copy _26) -> [return: bb12, unwind continue];
+    }
+
+    bb12: {
+        _20 = _print(move _21) -> [return: bb13, unwind continue];
+    }
+
+    bb13: {
+        return;
+    }
+}
+
+const main::promoted[0]: &[&str; 2] = {
+    let mut _0: &[&str; 2];
+    let mut _1: [&str; 2];
+
+    bb0: {
+        _1 = [const "area of r1:", const "\n"];
+        _0 = &_1;
+        return;
+    }
+}
+
+alloc2 (size: 1, align: 1) {
+    0a                                              │ .
+}
+
+alloc1 (size: 11, align: 1) {
+    61 72 65 61 20 6f 66 20 72 31 3a                │ area of r1:
+}
+
+const main::promoted[1]: &[&str; 2] = {
+    let mut _0: &[&str; 2];
+    let mut _1: [&str; 2];
+
+    bb0: {
+        _1 = [const "area of r1:", const "\n"];
+        _0 = &_1;
+        return;
+    }
+}
+
+alloc2 (size: 1, align: 1) {
+    0a                                              │ .
+}
+
+alloc1 (size: 11, align: 1) {
+    61 72 65 61 20 6f 66 20 72 31 3a                │ area of r1:
+}
+
+fn <impl at src/main.rs:32:10: 32:15>::fmt(_1: &Rect<T>, _2: &mut Formatter<'_>) -> Result<(), std::fmt::Error> {
+    debug self => _1;
+    debug f => _2;
+    let mut _0: std::result::Result<(), std::fmt::Error>;
+    let mut _3: &str;
+    let mut _4: &str;
+    let mut _5: &dyn std::fmt::Debug;
+    let _6: &T;
+    let mut _7: &str;
+    let mut _8: &dyn std::fmt::Debug;
+    let _9: &&T;
+    let _10: &T;
+
+    bb0: {
+        _3 = const "Rect";
+        _4 = const "l";
+        _6 = &((*_1).0: T);
+        _5 = copy _6 as &dyn std::fmt::Debug (PointerCoercion(Unsize, Implicit));
+        _7 = const "b";
+        _10 = &((*_1).1: T);
+        _9 = &_10;
+        _8 = copy _9 as &dyn std::fmt::Debug (PointerCoercion(Unsize, Implicit));
+        _0 = Formatter::<'_>::debug_struct_field2_finish(copy _2, move _3, move _4, move _5, move _7, move _8) -> [return: bb1, unwind continue];
+    }
+
+    bb1: {
+        return;
+    }
+}
+
+alloc9 (size: 1, align: 1) {
+    62                                              │ b
+}
+
+alloc8 (size: 1, align: 1) {
+    6c                                              │ l
+}
+
+alloc7 (size: 4, align: 1) {
+    52 65 63 74                                     │ Rect
+}
+
+fn <impl at src/main.rs:38:1: 38:43>::new(_1: T, _2: T) -> Rect<T> {
+    debug l => _1;
+    debug b => _2;
+    let mut _0: Rect<T>;
+
+    bb0: {
+        _0 = Rect::<T> { l: copy _1, b: copy _2 };
+        return;
+    }
+}
+
+fn <impl at src/main.rs:38:1: 38:43>::area(_1: &Rect<T>) -> U {
+    debug self => _1;
+    let mut _0: U;
+    let _2: U;
+    let mut _3: T;
+    let mut _5: T;
+    scope 1 {
+        debug l1 => _2;
+        let _4: U;
+        scope 2 {
+            debug b1 => _4;
+        }
+    }
+
+    bb0: {
+        _3 = copy ((*_1).0: T);
+        _2 = <U as From<T>>::from(move _3) -> [return: bb1, unwind continue];
+    }
+
+    bb1: {
+        _5 = copy ((*_1).1: T);
+        _4 = <U as From<T>>::from(move _5) -> [return: bb2, unwind continue];
+    }
+
+    bb2: {
+        _0 = <U as Mul>::mul(copy _2, copy _4) -> [return: bb3, unwind continue];
+    }
+
+    bb3: {
+        return;
+    }
+}

@@ -4,12 +4,6 @@ fn main() {
 
     let vec1 = vec![10, 34, 56, 12, 5, 45, 67, 145];
 
-    let max = max_of(&arr1[..]);
-    println!("max:{}", max);
-
-    let max = max_of(&vec1);
-
-    println!("max:{}", max);
 
     // let r = add_g(true,true);
 
@@ -67,4 +61,3 @@ impl Add for Rect {
         }
     }
 }
-

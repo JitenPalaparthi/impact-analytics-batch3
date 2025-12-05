@@ -31,7 +31,11 @@ let r1 = Rect::new(12.23,14.234);
 
    println!("area:{}",a1);
 
+   let r1 = Rect::<i32>::new(12, 13);
 
+  let a1 = r1.area();
+
+   println!("area:{}",a1);
 
 
 }
