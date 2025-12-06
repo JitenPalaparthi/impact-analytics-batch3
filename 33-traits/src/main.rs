@@ -19,7 +19,9 @@ fn main() {
     Shape2(&s1); // The code is generated
     Shape3(&r1); // The code is generated
     Shape1(&r1); // The code is generated
-
+    Shape4(&r1); // Dynamic dispatch
+    Shape4(&s1); // Dynamic dispatch
+    Shape4(&c1); // Dynamic dispatch
     Shape2(&c1); // The code is generated
     Shape3(&c1); // The code is generated
     Shape1(&c1); // The code is generated
@@ -29,7 +31,14 @@ fn main() {
    let str= i.what();
 
   // greet();
-   println!("Hello Impact Analytics")
+   println!("Hello Impact Analytics");
+
+   let c1:Cuboid = Cuboid { l: 12.3, b: 123.23, h: 14.56 };
+
+   // What -> what() --> Text
+
+   // VTable -> For every Trait and for every Concrete Type 
+
 }
 
 fn Shape1(s: &impl Shape) { 
@@ -47,6 +56,14 @@ fn Shape3<T>(t:&T) where T:Shape{
     println!("Area of {}:{:.2}",t.what(), t.area());
     println!("perimeter of {} :{:.2}",t.what(),t.perimeter())
 }
+
+
+fn Shape4(s: &dyn Shape) {  // dynamic dispatch, the compiler would not generate the code 
+    // this is how you can call the object s
+   println!("Area of {}:{:.2}",s.what(), s.area());
+   println!("perimeter of {} :{:.2}",s.what(),s.perimeter())
+}
+
 
 
 impl What for i32{
@@ -87,3 +104,13 @@ impl std::ops::Add for mybool{
 fn greet(){
     println!("Hello Impact Analytics")
 }
+
+
+// It does not mean that it creats a vtable 
+struct Cuboid{
+    l:f32,
+    b:f32,
+    h:f32
+}
+
+impl What for Cuboid{}
