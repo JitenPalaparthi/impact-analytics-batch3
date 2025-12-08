@@ -34,6 +34,7 @@ fn main() {
     // why cant rust drop everything here -->? 
 }
 
+// for the below three functions , there is no need of giving lifetime annotations
 fn get_len<'a>(s: &'a str) -> usize { // 
     return s.len();
 }

@@ -23,6 +23,9 @@ fn main() {
    
     println!("{:?}",unsafe{*r});
 
+    //let s = "Hello World";
+
+
 }
 
 // fn get_sq1(n: i32) -> &i32 {

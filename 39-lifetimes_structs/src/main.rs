@@ -8,14 +8,12 @@ fn main() {
 
     println!("{:#?}", p1);
 
-    
     let name = "Jiten".to_string();
-    
 
     let s1 = Student {
         id: 101,
         name: &name,
-        email: "Jitenp@Outlook.Com",
+        email: "Jitenp@Outlook.Com", // &str
         address: "Trv",
     };
 
@@ -26,6 +24,9 @@ fn main() {
     let str1: String = "hello world".to_string();
 
     let str2: &String = &str1;
+
+    
+
 }
 
 #[derive(Debug)]
@@ -47,7 +48,47 @@ struct Student<'a> {
     address: &'a str,
 }
 
+trait Address<'a> {
+    fn get_city_state(&self) -> (&'a str, &'a str);
+}
+
+// trait Address1{
+//      fn get_city_state(&self)->String;
+// }
+
+// impl<'a> Student<'a>{
+//  fn get_city_state(&self)->(&'a str,&'a str){
+//     let address_parts:Vec<&str> = self.address.split(',').collect();
+//     let city_1 = address_parts[0];
+//     let state_2= address_parts[1];
+//     return (city_1,state_2)
+//  }
+// }
+// 
+
+impl<'a> Address<'a> for Student<'a> {
+    fn get_city_state(&self) -> (&'a str, &'a str) {
+        let address_parts: Vec<&str> = self.address.split(',').collect();
+        let city_1 = address_parts[0];
+        let state_2 = address_parts[1];
+        return (city_1, state_2);
+    }
+}
+
 // in the address of Student --> "city:Bangalore,state:karnataka"
 // create a method , parse the address and return city and state as two separate strings
 
 // fn get_city_state()->(&str,&str)
+
+fn get_day(n: u8) -> &'static str {
+    match n {
+        1 => "Sunday",
+        2 => "Monday",
+        3 => "Tuesday",
+        4 => "Wednesday",
+        5 => "Thursday",
+        6 => "Friday",
+        7 => "Saturday",
+        _ => "No day",
+    }
+}
