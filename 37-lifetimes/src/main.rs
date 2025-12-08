@@ -1,4 +1,6 @@
-static mut SQ: i32 = 0; // never be deallocated , lazy init
+static mut SQ: i32 = 0; // never be deallocated , lazyinit // Data Segment 
+
+// BSS and RO 
 
 static STR: &'static str = "Hello Impact Analytics"; // this is immutable internally
 
@@ -17,7 +19,9 @@ fn main() {
     // *r = 200;
 
 
+    let r = get_sq3(100);
    
+    println!("{:?}",unsafe{*r});
 
 }
 
@@ -47,6 +51,12 @@ fn get_sq3(n: i32) -> *const i32 {
         SQ = n * n;
         return SQ as *const i32;
     }
+}
+
+
+fn get_sq4(n: i32) -> &'static i32{
+    // no problem with dangling pointer , bcz it is static lifetime
+   &SQ1
 }
 
 fn get_str1() -> &'static str {
