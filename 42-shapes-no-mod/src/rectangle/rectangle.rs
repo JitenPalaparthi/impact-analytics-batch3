@@ -1,4 +1,4 @@
-use crate::shapes::shape::shape::Shape;
+use crate::Shape;
 pub struct Rect{
     pub l:f32,
     pub b:f32,
