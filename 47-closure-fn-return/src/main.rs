@@ -107,4 +107,4 @@ fn calc3(ops: Operations) -> Box<dyn Fn(i32, i32) -> i32> {
 // }
 
 
-// fn vs impl Fn vs dyn Fn cs Box<dyn Fn>
+// fn vs impl Fn vs dyn Fn vs Box<dyn Fn>
