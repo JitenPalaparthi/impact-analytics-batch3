@@ -1,0 +1,65 @@
+# =========================================
+# Global ignore for all Rust projects
+# =========================================
+
+# Cargo build output
+target/
+
+# Rust package manager metadata
+**/Cargo.lock
+!Cargo.lock       # if you want to keep workspace-level lockfile
+
+# Rust toolchain files
+rust-toolchain
+rust-toolchain.toml
+
+# =========================================
+# IDEs / Editors
+# =========================================
+# VSCode
+.vscode/
+# IntelliJ / CLion / RustRover
+.idea/
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+# Other editor backups
+*~
+
+# =========================================
+# OS-specific files
+# =========================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =========================================
+# Logs / temporary files
+# =========================================
+*.log
+*.tmp
+*.bak
+*.swp
+
+# =========================================
+# Test / Coverage tools
+# =========================================
+coverage/
+*.profraw
+*.profdata
+
+# =========================================
+# Custom per-project ignores
+# =========================================
+# Ignore build outputs in subcrates
+**/target/
+
+# If you have examples, benches, or docs generating outputs
+examples/**/target/
+benches/**/target/
+docs/**/target/

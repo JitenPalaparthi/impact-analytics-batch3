@@ -1,0 +1,7 @@
+[package]
+name = "package_consumer"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+package_management = { path = "../41-shapes-mod-lib" } #local path

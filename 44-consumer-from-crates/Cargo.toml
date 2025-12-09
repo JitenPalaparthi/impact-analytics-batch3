@@ -1,0 +1,9 @@
+[package]
+name = "package_consumer"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+package_management = "0.1.0"
+
+# package_management = { git = "https://github.com/your-user/jp_shapes.git" }

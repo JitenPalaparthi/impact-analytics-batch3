@@ -2,7 +2,7 @@ mod shape;
 mod rectangle;
 mod square;
 
-use crate::rectangle::rectangle::Rect;
+use crate::rectangle::rect::rect::Rect;
 use crate::shape::shape::Shape;
 fn main() {
     let r1 = Rect::new(12.34,34.34);
