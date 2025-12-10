@@ -22,30 +22,36 @@ fn main() {
         }
     });
 
-    let handler2 = thread::spawn(|| match File::open("data.txt") {
-        Ok(mut file) => {
-            let mut file_data = String::new();
-            loop {
-                let mut buf: [u8; 1] = [0; 1];
-                match file.read(&mut buf[..]) {
-                    Ok(size) => {
-                        if size==0{
-                            println!("It has finished reading");
-                            break;
-                        }else{
-                            if buf[0]==b'\n'{
-
-                            }   
+    let handler2 = thread::spawn(|| -> Vec<String> {
+        match File::open("data.txt") {
+            Ok(mut file) => {
+                let mut lines: Vec<String> = Vec::<String>::new();
+                let mut line = "".to_string();
+                loop {
+                    let mut buf: [u8; 1] = [0; 1];
+                    match file.read(&mut buf[..]) {
+                        Ok(size) => {
+                            if size == 0 {
+                                println!("It has finished reading");
+                                break lines;
+                            } else {
+                                if buf[0] == b'\n' {
+                                    lines.push(line.clone());
+                                    line.clear();
+                                } else {
+                                    line.push(buf[0] as char);
+                                }
+                            }
                         }
-                    }
-                    Err(e) => {
-                        println!("It has finished reading-->{}",e);
-                        break;
+                        Err(e) => {
+                            println!("It has finished reading-->{}", e);
+                            break lines;
+                        }
                     }
                 }
             }
+            Err(e) => panic!("err opening file"),
         }
-        Err(e) => panic!("err opening file"),
     });
 
     let filedata = handler1.join().unwrap();
