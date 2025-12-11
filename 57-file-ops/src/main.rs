@@ -55,7 +55,9 @@ fn main() {
     });
 
     let filedata = handler1.join().unwrap();
-    println!("{}", filedata);
+    let lines = handler2.join().unwrap();
+
+     println!("{:#?}", lines);
 }
 
 // first , do the file read ,
