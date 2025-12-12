@@ -1,4 +1,3 @@
 # Rust Programming Langauge
 
-648a6a6ffffdaa0badb23b8baf90b6168dd16b3a
-648a6a6ffffdaa0badb23b8baf90b6168dd16b3a
+https://docs.google.com/presentation/d/1Lgi6eevXJX7u1A9cqnwuYN6hCtCQnxYLzKK_wAlnV2Q/edit?slide=id.p11#slide=id.p11
