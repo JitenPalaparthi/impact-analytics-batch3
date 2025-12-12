@@ -2,7 +2,8 @@ use core::time;
 use std::thread;
 
 fn main() {
-    let handle1 = thread::spawn(|| {
+
+    let handle1: thread::JoinHandle<()> = thread::spawn(|| {
         for i in 1..10 {
             println!("thread-1 {}-->", i);
             // thread::sleep(time::Duration::from_nanos(10));

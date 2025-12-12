@@ -10,7 +10,7 @@ fn main() {
     let (snd,rec)= mpsc::channel();
     let sender = thread::spawn(move ||{
         match File::open("data.txt") {
-            Ok(mut file) => {
+            Ok(file) => {
                 let reader= BufReader::new(file);
                 let mut line_no=1;
                 for line in reader.lines(){
@@ -30,6 +30,8 @@ fn main() {
     let receiver =thread::spawn(move||{
         for l in rec{
             thread::sleep(time::Duration::from_millis(200)); 
+            // do some anaqlytics here
+            
             println!("-->{}",l);
         }
     });

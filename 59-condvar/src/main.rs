@@ -36,7 +36,7 @@ fn main() {
             let mut state: std::sync::MutexGuard<'_, shared> = lock.lock().unwrap();
            state.done=true;
            cvar.notify_all();
-            println!("Producer done producing values");
+           println!("Producer done producing values");
 
     });
 

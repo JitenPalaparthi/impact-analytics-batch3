@@ -19,7 +19,7 @@ fn main() {
         }
     });
 
-    handle1.join().unwrap();
+    handle1.join().unwrap(); 
     println!("Done with main.. exiting")
 }
 

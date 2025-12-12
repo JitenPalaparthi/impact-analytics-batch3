@@ -2,6 +2,7 @@ use std::{fs::File, io::Read};
 
 use std::thread;
 
+
 fn main() {
     let handler1 = thread::spawn(|| -> String {
         match File::open("data.txt") {

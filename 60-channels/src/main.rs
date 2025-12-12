@@ -9,7 +9,7 @@ fn main() {
     let snd2 = snd.clone();
     let sender1 = thread::spawn(move || {
         for i in 1..=100 {
-            thread::sleep(time::Duration::from_millis(500)); /
+            thread::sleep(time::Duration::from_millis(500)); 
             // computation 
             snd.send(i).unwrap();
         }
